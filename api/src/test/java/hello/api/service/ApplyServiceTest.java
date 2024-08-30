@@ -3,6 +3,7 @@ package hello.api.service;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import hello.api.repository.CouponCountRepository;
 import hello.api.repository.CouponRepository;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
@@ -24,8 +25,7 @@ class ApplyServiceTest {
     @Test
     public void 한번만응모(){
         applyService.apply(1L);
-        long count= couponRepository.count();
-        assertThat(count).isEqualTo(1);
+        assertThat(applyService.count()).isEqualTo(1);
     }
 
     @Test
