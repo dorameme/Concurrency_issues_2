@@ -15,7 +15,7 @@ public class ApplyService {
     public  void  apply(Long userId){
         long count= couponRepository.count();
         if(count > 100){
-            return;
+            return;//발급불가능
         }
         couponRepository.save(new Coupon(userId));
     }
